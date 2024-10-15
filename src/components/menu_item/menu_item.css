@@ -1,0 +1,45 @@
+.menu_items {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background: #ffffff;
+}
+
+.menu_item-styling {
+  text-decoration: none;
+  color: white;
+  margin: 1rem;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+img {
+  height: 2rem;
+}
+
+.menu_list {
+  list-style: none;
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+input[type="checkbox"] {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.menu_list_item {
+  display: flex;
+  align-items: center;
+  margin: 1rem;
+  width: 90%;
+  justify-content: space-between;
+}
