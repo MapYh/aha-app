@@ -23,9 +23,6 @@ jobs:
 
       - name: Run linters
         run: eslint . --ext .js,.jsx,.ts,.tsx
-        with:
-          eslint: true
-          prettier: true
 
       - name: Setup pages
         uses: actions/configure-pages@v3
