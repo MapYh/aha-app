@@ -27,7 +27,7 @@ jobs:
       - name: Setup pages
         uses: actions/configure-pages@v4
       - name: upload dist folder
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: "./dist"
 
