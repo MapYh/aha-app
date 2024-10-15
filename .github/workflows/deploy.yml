@@ -1,4 +1,5 @@
 name: Deploy react app
+run-name: ${{ github.head_ref }} (${{ github.actor }})
 
 on:
   pull_request:
