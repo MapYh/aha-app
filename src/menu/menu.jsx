@@ -2,7 +2,7 @@ import React from "react";
 import "./menu.css";
 import Nav from "../components/nav/nav";
 import Background from "../components/background/background";
-import Form from "../components/form/form";
+
 import Menu_item from "../components/menu_item/menu_item";
 
 const objectNav = {
