@@ -41,6 +41,6 @@ jobs:
 
       - name: Check if the source branch is dev
         run: |
-          if [ "${{ github.head_ref }}" != "dev" ]; then
-            echo "Merging from branch '${{ github.head_ref }}' to 'main' is not allowed. Only merges from 'dev' are permitted."
+          if [ "${{ github.event.pull_request.head.ref }}" != "dev" ]; then
+            echo "Merging from branch '${{ github.event.pull_request.head.ref }}' to 'main' is not allowed. Only merges from 'dev' are permitted."
             exit 1
