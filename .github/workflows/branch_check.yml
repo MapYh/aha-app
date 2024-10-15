@@ -1,5 +1,4 @@
 name: Merge Check
-run-name: ${{ github.head_ref }} #(${{ github.actor }})
 
 on:
   pull_request:
