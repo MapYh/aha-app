@@ -3,7 +3,7 @@ name: Deploy react app
 on:
   push:
     Branches:
-      - dev
+      - main
 
 on:
   pull_request:
@@ -17,7 +17,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-asdasd
+
     steps:
       - uses: actions/checkout@v4
       - name: Install modules
