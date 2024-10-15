@@ -22,7 +22,10 @@ jobs:
         run: npm run build
 
       - name: Run linters
-        run: eslint . --ext .js,.jsx,.ts,.tsx
+        uses: wearerequired/lint-action@v2
+        with:
+        eslint: true
+        prettier: true
 
       - name: Setup pages
         uses: actions/configure-pages@v3
