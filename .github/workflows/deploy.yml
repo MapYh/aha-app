@@ -22,9 +22,9 @@ jobs:
         run: npm run build
 
       - name: ESLint
-        run: yarn run fix .
+        run: npm run fix .
       - name: Prettier
-        run: yarn prettier --write .
+        run: npm prettier --write .
 
       - name: Setup pages
         uses: actions/configure-pages@v3
