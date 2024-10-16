@@ -14,7 +14,7 @@ function App() {
     <>
       <Routes>
         <Route
-          index
+          path="/"
           element={
             <main className="body" onClick={handleClick}>
               <Landing />

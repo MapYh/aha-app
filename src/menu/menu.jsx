@@ -7,7 +7,7 @@ import Menu_item from "../components/menu_item/menu_item";
 
 const objectNav = {
   classname: "menu-styling menu",
-  nav_text: "Aha",
+  nav_text: "Ahaa",
 };
 
 export default function menu() {
@@ -25,7 +25,6 @@ export default function menu() {
           />
         }
         menu_item_node={<Menu_item />}
-        /* form_node={<Form />} */
       />
     </section>
   );
