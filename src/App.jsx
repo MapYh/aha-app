@@ -10,7 +10,7 @@ function App() {
   function handleClick() {
     navigate("/menu");
   }
-  ////
+
   return (
     <>
       <Routes>
