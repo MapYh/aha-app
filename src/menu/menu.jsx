@@ -15,17 +15,17 @@ export default function menu() {
   const [todos, setTodos] = React.useState([
     {
       title: "Some task",
-      index: self.crypto.randomUUID(),
+      id: self.crypto.randomUUID(),
       is_completed: false,
     },
     {
       title: "Some other task",
-      index: self.crypto.randomUUID(),
+      id: self.crypto.randomUUID(),
       is_completed: false,
     },
     {
       title: "last task",
-      index: self.crypto.randomUUID(),
+      id: self.crypto.randomUUID(),
       is_completed: false,
     },
   ]);

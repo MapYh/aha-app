@@ -3,13 +3,21 @@ import "./menu_item.css";
 import deleteIcon from "../../assets/trashIcon.svg";
 
 export default function menu({ listOftodos, setTodos }) {
-  const [x, setX] = useState(false);
-  function eraseTask() {
-    console.log("erase");
+  function eraseTask(event) {
+    const result = listOftodos.todos.filter(
+      (todo) => todo.id != event.target.id
+    );
+
+    setTodos(result);
+    return result;
   }
 
   const completeTask = (event) => {
-    console.log(event);
+    for (let i = 0; i < listOftodos.todos.length; i++) {
+      if (listOftodos.todos[i].id == event.target.id) {
+        listOftodos.todos[i].is_completed = !listOftodos.todos[i].is_completed;
+      }
+    }
   };
 
   function handleSubmit(event) {
@@ -18,7 +26,7 @@ export default function menu({ listOftodos, setTodos }) {
 
     setTodos((prevTodos) => [
       ...prevTodos,
-      { title: newTodo, id: self.crypto.randomUUID(), is_completed: false },
+      { title: newTodo, id: self.crypto.randomUUID(), is_completed: true },
     ]);
     event.target.reset();
   }
@@ -32,14 +40,13 @@ export default function menu({ listOftodos, setTodos }) {
               <li className="menu_list_item" key={index}>
                 <label
                   className={` ${listOftodos.todos.is_completed ? "greyed-container" : "container"}`}
-                  checked={x}
                   onChange={completeTask}
                 >
-                  <input type="checkbox"></input>
+                  <input type="checkbox" id={todo.id}></input>
                   <span className="checkmark">{todo.title}</span>
                 </label>
                 <section onClick={eraseTask}>
-                  {<img src={deleteIcon} alt="trash icon" />}
+                  {<img src={deleteIcon} alt="trash icon" id={todo.id} />}
                 </section>
               </li>
             ))
