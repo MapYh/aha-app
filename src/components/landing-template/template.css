@@ -17,6 +17,12 @@
   align-items: end;
   justify-content: center;
   height: 100%;
+  font-family: "Fontdiner Swanky";
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 26px;
+  text-align: center;
+  color: white;
 }
 
 .template-lower {
