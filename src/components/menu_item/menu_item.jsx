@@ -2,37 +2,50 @@ import React, { useState } from "react";
 import "./menu_item.css";
 import deleteIcon from "../../assets/trashIcon.svg";
 
-export default function menu(props) {
-  const [formData, setFormData] = useState(["test", "test two"]);
-  function completeTask() {}
-  function deleteTask() {}
-  let id = 3;
+export default function menu({ listOftodos, setTodos }) {
+  const [x, setX] = useState(false);
+  function eraseTask() {
+    console.log("erase");
+  }
+
+  const completeTask = (event) => {
+    console.log(event);
+  };
+
   function handleSubmit(event) {
     event.preventDefault();
-    const text = event.target.todo.value;
-    setFormData(...formData, text);
-    console.log(text);
+    const newTodo = event.target.todo.value;
+
+    setTodos((prevTodos) => [
+      ...prevTodos,
+      { title: newTodo, id: self.crypto.randomUUID(), is_completed: false },
+    ]);
+    event.target.reset();
   }
-  console.log(formData);
+
   return (
     <>
       <section className="menu_items">
         <ul className="menu_list">
-          <li className="menu_list_item" key={id++}>
-            <label className="container ">
-              <input
-                type="checkbox"
-                onClick={() => {
-                  completeTask();
-                }}
-              ></input>
-              <span className="checkmark">{formData}</span>
-            </label>
-
-            <section>
-              {<img src={deleteIcon} alt="trash icon" onClick={deleteTask()} />}
-            </section>
-          </li>
+          {listOftodos.todos && listOftodos.todos.length > 0 ? (
+            listOftodos.todos?.map((todo, index) => (
+              <li className="menu_list_item" key={index}>
+                <label
+                  className={` ${listOftodos.todos.is_completed ? "greyed-container" : "container"}`}
+                  checked={x}
+                  onChange={completeTask}
+                >
+                  <input type="checkbox"></input>
+                  <span className="checkmark">{todo.title}</span>
+                </label>
+                <section onClick={eraseTask}>
+                  {<img src={deleteIcon} alt="trash icon" />}
+                </section>
+              </li>
+            ))
+          ) : (
+            <p className="menu_list_empty">Add some todos</p>
+          )}
         </ul>
       </section>
       <div className="form-footer">
