@@ -36,6 +36,10 @@ export default function menu({ listOftodos, setTodos }) {
     event.target.reset();
   }
 
+  function Item({}) {
+    return <></>;
+  }
+
   console.log("outside", listOftodos.todos);
   return (
     <>
@@ -46,7 +50,7 @@ export default function menu({ listOftodos, setTodos }) {
               <li className={`menu_list_item`} key={index}>
                 <label
                   onChange={completeTask}
-                  className={`${listOftodos.todos.is_completed ? "greyed-container" : "container"}`}
+                  className={`${todo.is_completed ? "greyed-container" : "container"}`}
                 >
                   <input type="checkbox" id={todo.id}></input>
                   <span className="checkmark">{todo.title}</span>
