@@ -13,11 +13,16 @@ export default function menu({ listOftodos, setTodos }) {
   }
 
   const completeTask = (event) => {
+    console.log("inside", listOftodos.todos);
     for (let i = 0; i < listOftodos.todos.length; i++) {
       if (listOftodos.todos[i].id == event.target.id) {
         listOftodos.todos[i].is_completed = !listOftodos.todos[i].is_completed;
+        setTodos(listOftodos.todos, {
+          is_completed: !listOftodos.todos[i].is_completed,
+        });
       }
     }
+    setTodos((prevTodos) => [...prevTodos]);
   };
 
   function handleSubmit(event) {
@@ -26,21 +31,22 @@ export default function menu({ listOftodos, setTodos }) {
 
     setTodos((prevTodos) => [
       ...prevTodos,
-      { title: newTodo, id: self.crypto.randomUUID(), is_completed: true },
+      { title: newTodo, id: self.crypto.randomUUID(), is_completed: false },
     ]);
     event.target.reset();
   }
 
+  console.log("outside", listOftodos.todos);
   return (
     <>
       <section className="menu_items">
         <ul className="menu_list">
           {listOftodos.todos && listOftodos.todos.length > 0 ? (
             listOftodos.todos?.map((todo, index) => (
-              <li className="menu_list_item" key={index}>
+              <li className={`menu_list_item`} key={index}>
                 <label
-                  className={` ${listOftodos.todos.is_completed ? "greyed-container" : "container"}`}
                   onChange={completeTask}
+                  className={`${listOftodos.todos.is_completed ? "greyed-container" : "container"}`}
                 >
                   <input type="checkbox" id={todo.id}></input>
                   <span className="checkmark">{todo.title}</span>
